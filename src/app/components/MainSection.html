@@ -1,0 +1,15 @@
+<section class="main">
+  <input *ngIf="todos.length"
+    class="toggle-all"
+    type="checkbox"
+    [checked]="completedCount === todos.length"
+    (click)="handleCompleteAll()"
+    />
+  <ul class="todo-list">
+    <fountain-todo-item *ngFor="let todo of todos" [todo]="todo" ></fountain-todo-item>
+    <!--<template ngFor let-todo [ngForOf]="todos">
+      <fountain-todo-item [todo]="todo" ></fountain-todo-item>
+    </template>-->
+  </ul>
+  <fountain-footer *ngIf="todos.length"></fountain-footer>
+</section>
