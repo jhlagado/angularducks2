@@ -6,10 +6,7 @@
     (click)="handleCompleteAll()"
     />
   <ul class="todo-list">
-    <fountain-todo-item *ngFor="let todo of todos" [todo]="todo" ></fountain-todo-item>
-    <!--<template ngFor let-todo [ngForOf]="todos">
-      <fountain-todo-item [todo]="todo" ></fountain-todo-item>
-    </template>-->
+    <fountain-todo-item *ngFor="let todo of filteredTodos" [todo]="todo" ></fountain-todo-item>
   </ul>
   <fountain-footer *ngIf="todos.length"></fountain-footer>
 </section>

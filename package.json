@@ -90,6 +90,7 @@
       "no-trailing-spaces": 0,
       "linebreak-style": 0,
       "padded-blocks": 0,
+      "array-bracket-spacing": 0,
       "comma-dangle": 0
     }
   }

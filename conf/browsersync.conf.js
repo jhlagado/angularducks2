@@ -8,6 +8,7 @@ module.exports = function () {
         conf.paths.src
       ]
     },
+    port: 3002,
     open: false
   };
 };

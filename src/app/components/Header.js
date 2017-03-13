@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {StoreService} from '../storeservice';
-import * as actions from '../store/Todo/actions';
+import {addTodo} from '../store/Todo/actions';
 
 @Component({
   selector: 'fountain-header',
@@ -18,7 +18,7 @@ export class HeaderComponent {
 
   handleSave(text) {
     if (text.length !== 0) {
-       this.store.dispatch(actions.addTodo(text));
+       this.store.dispatch(addTodo(text));
     }
   }
 }

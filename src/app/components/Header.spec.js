@@ -1,8 +1,8 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {StoreModule} from '@ngrx/store';
-import {HeaderComponent} from './Header';
-import {By} from '@angular/platform-browser';
-import {TestBed, async} from '@angular/core/testing';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { StoreService } from '../storeservice';
+import { HeaderComponent } from './Header';
+import { By } from '@angular/platform-browser';
+import { TestBed, async } from '@angular/core/testing';
 
 @Component({
   selector: 'fountain-todo-text-input',
@@ -16,11 +16,23 @@ class MockTodoTextInputComponent {
   @Output() onSave = new EventEmitter(false);
 }
 
+const mockStore = {
+  dispatch: () => { },
+};
+class MockStoreService {
+  getStore() {
+    return mockStore;
+  }
+}
+
 describe('Header component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        StoreModule.provideStore({}, {})
+      providers: [
+        {
+          provide: StoreService,
+          useClass: MockStoreService
+        }
       ],
       declarations: [
         HeaderComponent,
@@ -47,9 +59,8 @@ describe('Header component', () => {
   it('should call addTodo if length of text is greater than 0', () => {
     const fixture = TestBed.createComponent(HeaderComponent);
     fixture.detectChanges();
-    const HeaderCmp = fixture.componentInstance;
     const todoTextInput = fixture.debugElement.query(By.css('fountain-todo-text-input')).componentInstance;
-    const dispatchSpy = spyOn(HeaderCmp.store, 'dispatch');
+    const dispatchSpy = spyOn(mockStore, 'dispatch');
     todoTextInput.onSave.emit('');
     expect(dispatchSpy.calls.count()).toBe(0);
     todoTextInput.onSave.emit('Use ngrx/store');

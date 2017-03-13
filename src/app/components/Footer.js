@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {StoreService} from '../storeservice';
-import {SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE} from '../store/visibilityFilter/constants';
+import { Component } from '@angular/core';
+import { StoreService } from '../storeservice';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../store/visibilityFilter/constants';
 import { clearCompleted } from '../store/Todo/actions';
 import { setVisibilityFilter } from '../store/visibilityFilter/actions';
 
@@ -39,6 +39,7 @@ export class FooterComponent {
 
     this.store.subscribe(update);
     update();
+    this.__update = update; // for unit testing
   }
 
   completedCount = 0;

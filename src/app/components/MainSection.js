@@ -25,11 +25,17 @@ export class MainSectionComponent {
     const update = () => {
       const state = this.store.getState();
       const filter = state.visibilityFilter;
-      this.todos = state.todos.filter(this.filters[filter]);
+      this.todos = state.todos;
+      this.completedCount = this.todos.reduce((count, todo) =>
+        todo.completed ? count + 1 : count,
+        0
+      );
+      this.filteredTodos = this.todos.filter(this.filters[filter]);
     };
 
     this.store.subscribe(() => update());
     update();
+    this.__update = update; 
   }
 
   handleCompleteAll() {

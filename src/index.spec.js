@@ -3,7 +3,6 @@ Error.stackTraceLimit = Infinity;
 require('core-js/client/shim');
 
 require('@angular/common');
-require('rxjs');
 
 require('zone.js/dist/zone');
 require('zone.js/dist/long-stack-trace-zone');
