@@ -1,6 +1,5 @@
 import { StoreService } from '../storeservice';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
 import { TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { MainSectionComponent } from './MainSection';
