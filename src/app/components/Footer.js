@@ -9,7 +9,7 @@ import { setVisibilityFilter } from '../store/visibilityFilter/actions';
   template: require('./Footer.html'),
   styles: [`
     a {
-      cursor: pointer
+      cursor:  pointer
     }
   `]
 })
